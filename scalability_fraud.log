@@ -1,0 +1,261 @@
+==============================================================
+Experiment: scalability_fraud
+  Dataset:  965 samples (balanced, deduped)
+  Split:    627 train / 145 val / 193 test
+  H sweep:  [8, 16, 32, 64, 128, 256]
+  Seeds:    [42, 0, 1, 2, 3]
+  R=3  λ=0.001  max_epochs=20  patience=3
+==============================================================
+
+==============================================================
+  H = 8  |  N = 320 weights  |  classical evals/epoch ≈ 960
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.4480 <-- best
+    lr=1e-02: val F1=0.6935 <-- best
+    lr=1e-01: val F1=0.8640 <-- best
+  => selected lr = 0.1
+
+  Seed 42
+    ADAM (7 epochs)  F1=0.761  recall=0.621  prec=0.983  AUC=0.795
+    QEWO (7 epochs)  F1=0.855  recall=0.779  prec=0.949  AUC=0.942
+          evals/epoch=960  time/epoch=0.1s
+
+  Seed 0
+    ADAM (7 epochs)  F1=0.807  recall=0.684  prec=0.985  AUC=0.883
+    QEWO (7 epochs)  F1=0.903  recall=0.884  prec=0.923  AUC=0.944
+          evals/epoch=960  time/epoch=0.1s
+
+  Seed 1
+    ADAM (13 epochs)  F1=0.849  recall=0.768  prec=0.948  AUC=0.913
+    QEWO (6 epochs)  F1=0.865  recall=0.811  prec=0.928  AUC=0.940
+          evals/epoch=960  time/epoch=0.1s
+
+  Seed 2
+    ADAM (8 epochs)  F1=0.800  recall=0.674  prec=0.985  AUC=0.881
+    QEWO (9 epochs)  F1=0.878  recall=0.832  prec=0.929  AUC=0.949
+          evals/epoch=960  time/epoch=0.1s
+
+  Seed 3
+    ADAM (10 epochs)  F1=0.852  recall=0.758  prec=0.973  AUC=0.899
+    QEWO (6 epochs)  F1=0.880  recall=0.853  prec=0.910  AUC=0.939
+          evals/epoch=960  time/epoch=0.1s
+
+  === H=8 summary ===
+  ADAM  F1=0.814±0.034  recall=0.701  AUC=0.874
+  QEWO  F1=0.876±0.016  recall=0.832  AUC=0.943
+  QEWO  evals/epoch=960  time/epoch=0.1s
+
+==============================================================
+  H = 16  |  N = 768 weights  |  classical evals/epoch ≈ 2304
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.4459 <-- best
+    lr=1e-02: val F1=0.7805 <-- best
+    lr=1e-01: val F1=0.9489 <-- best
+  => selected lr = 0.1
+
+  Seed 42
+    ADAM (8 epochs)  F1=0.844  recall=0.768  prec=0.936  AUC=0.920
+    QEWO (9 epochs)  F1=0.854  recall=0.800  prec=0.916  AUC=0.927
+          evals/epoch=2304  time/epoch=0.2s
+
+  Seed 0
+    ADAM (8 epochs)  F1=0.795  recall=0.674  prec=0.970  AUC=0.895
+    QEWO (6 epochs)  F1=0.873  recall=0.832  prec=0.919  AUC=0.955
+          evals/epoch=2304  time/epoch=0.2s
+
+  Seed 1
+    ADAM (11 epochs)  F1=0.830  recall=0.747  prec=0.934  AUC=0.943
+    QEWO (10 epochs)  F1=0.873  recall=0.832  prec=0.919  AUC=0.946
+          evals/epoch=2304  time/epoch=0.2s
+
+  Seed 2
+    ADAM (17 epochs)  F1=0.869  recall=0.800  prec=0.950  AUC=0.945
+    QEWO (4 epochs)  F1=0.847  recall=0.789  prec=0.915  AUC=0.924
+          evals/epoch=2304  time/epoch=0.2s
+
+  Seed 3
+    ADAM (20 epochs)  F1=0.890  recall=0.853  prec=0.931  AUC=0.933
+    QEWO (8 epochs)  F1=0.885  recall=0.853  prec=0.920  AUC=0.940
+          evals/epoch=2304  time/epoch=0.2s
+
+  === H=16 summary ===
+  ADAM  F1=0.846±0.033  recall=0.768  AUC=0.927
+  QEWO  F1=0.866±0.014  recall=0.821  AUC=0.939
+  QEWO  evals/epoch=2304  time/epoch=0.2s
+
+==============================================================
+  H = 32  |  N = 2048 weights  |  classical evals/epoch ≈ 6144
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.4267 <-- best
+    lr=1e-02: val F1=0.7869 <-- best
+    lr=1e-01: val F1=0.8939 <-- best
+  => selected lr = 0.1
+
+  Seed 42
+    ADAM (9 epochs)  F1=0.826  recall=0.726  prec=0.958  AUC=0.912
+    QEWO (9 epochs)  F1=0.880  recall=0.853  prec=0.910  AUC=0.947
+          evals/epoch=6144  time/epoch=0.7s
+
+  Seed 0
+    ADAM (8 epochs)  F1=0.819  recall=0.737  prec=0.921  AUC=0.915
+    QEWO (5 epochs)  F1=0.807  recall=0.726  prec=0.908  AUC=0.916
+          evals/epoch=6144  time/epoch=0.7s
+
+  Seed 1
+    ADAM (5 epochs)  F1=0.807  recall=0.684  prec=0.985  AUC=0.930
+    QEWO (7 epochs)  F1=0.878  recall=0.832  prec=0.929  AUC=0.931
+          evals/epoch=6144  time/epoch=0.7s
+
+  Seed 2
+    ADAM (7 epochs)  F1=0.824  recall=0.716  prec=0.971  AUC=0.916
+    QEWO (5 epochs)  F1=0.872  recall=0.821  prec=0.929  AUC=0.934
+          evals/epoch=6144  time/epoch=0.7s
+
+  Seed 3
+    ADAM (11 epochs)  F1=0.830  recall=0.747  prec=0.934  AUC=0.901
+    QEWO (4 epochs)  F1=0.837  recall=0.758  prec=0.935  AUC=0.915
+          evals/epoch=6144  time/epoch=0.7s
+
+  === H=32 summary ===
+  ADAM  F1=0.821±0.008  recall=0.722  AUC=0.915
+  QEWO  F1=0.855±0.028  recall=0.798  AUC=0.929
+  QEWO  evals/epoch=6144  time/epoch=0.7s
+
+==============================================================
+  H = 64  |  N = 6144 weights  |  classical evals/epoch ≈ 18432
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.6838 <-- best
+    lr=1e-02: val F1=0.8676 <-- best
+    lr=1e-01: val F1=0.9130 <-- best
+  => selected lr = 0.1
+
+  Seed 42
+    ADAM (7 epochs)  F1=0.823  recall=0.758  prec=0.900  AUC=0.902
+    QEWO (11 epochs)  F1=0.877  recall=0.863  prec=0.891  AUC=0.949
+          evals/epoch=18432  time/epoch=3.1s
+
+  Seed 0
+    ADAM (8 epochs)  F1=0.849  recall=0.768  prec=0.948  AUC=0.911
+    QEWO (10 epochs)  F1=0.876  recall=0.853  prec=0.900  AUC=0.930
+          evals/epoch=18432  time/epoch=3.2s
+
+  Seed 1
+    ADAM (7 epochs)  F1=0.822  recall=0.705  prec=0.985  AUC=0.937
+    QEWO (5 epochs)  F1=0.867  recall=0.821  prec=0.918  AUC=0.937
+          evals/epoch=18432  time/epoch=3.2s
+
+  Seed 2
+    ADAM (7 epochs)  F1=0.835  recall=0.747  prec=0.947  AUC=0.938
+    QEWO (9 epochs)  F1=0.894  recall=0.884  prec=0.903  AUC=0.947
+          evals/epoch=18432  time/epoch=3.1s
+
+  Seed 3
+    ADAM (9 epochs)  F1=0.810  recall=0.695  prec=0.971  AUC=0.922
+    QEWO (7 epochs)  F1=0.884  recall=0.842  prec=0.930  AUC=0.938
+          evals/epoch=18432  time/epoch=3.1s
+
+  === H=64 summary ===
+  ADAM  F1=0.828±0.013  recall=0.735  AUC=0.922
+  QEWO  F1=0.879±0.009  recall=0.853  AUC=0.940
+  QEWO  evals/epoch=18432  time/epoch=3.1s
+
+==============================================================
+  H = 128  |  N = 20480 weights  |  classical evals/epoch ≈ 61440
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.6667 <-- best
+    lr=1e-02: val F1=0.8661 <-- best
+    lr=1e-01: val F1=0.8730 <-- best
+  => selected lr = 0.1
+
+  Seed 42
+    ADAM (7 epochs)  F1=0.783  recall=0.663  prec=0.955  AUC=0.929
+    QEWO (6 epochs)  F1=0.870  recall=0.842  prec=0.899  AUC=0.947
+          evals/epoch=61440  time/epoch=18.4s
+
+  Seed 0
+    ADAM (8 epochs)  F1=0.818  recall=0.758  prec=0.889  AUC=0.889
+    QEWO (5 epochs)  F1=0.856  recall=0.811  prec=0.906  AUC=0.928
+          evals/epoch=61440  time/epoch=18.4s
+
+  Seed 1
+    ADAM (4 epochs)  F1=0.829  recall=0.716  prec=0.986  AUC=0.927
+    QEWO (7 epochs)  F1=0.898  recall=0.884  prec=0.913  AUC=0.945
+          evals/epoch=61440  time/epoch=24.8s
+
+  Seed 2
+    ADAM (8 epochs)  F1=0.845  recall=0.747  prec=0.973  AUC=0.939
+    QEWO (7 epochs)  F1=0.898  recall=0.884  prec=0.913  AUC=0.946
+          evals/epoch=61440  time/epoch=30.6s
+
+  Seed 3
+    ADAM (4 epochs)  F1=0.774  recall=0.632  prec=1.000  AUC=0.876
+    QEWO (8 epochs)  F1=0.884  recall=0.842  prec=0.930  AUC=0.951
+          evals/epoch=61440  time/epoch=32.8s
+
+  === H=128 summary ===
+  ADAM  F1=0.810±0.027  recall=0.703  AUC=0.912
+  QEWO  F1=0.881±0.017  recall=0.853  AUC=0.943
+  QEWO  evals/epoch=61440  time/epoch=25.0s
+
+==============================================================
+  H = 256  |  N = 73728 weights  |  classical evals/epoch ≈ 221184
+==============================================================
+  ADAM LR sweep (seed=42, 5 epochs, val F1):
+    lr=1e-03: val F1=0.7317 <-- best
+    lr=1e-02: val F1=0.8992 <-- best
+    lr=1e-01: val F1=0.8992
+  => selected lr = 0.01
+
+  Seed 42
+    ADAM (13 epochs)  F1=0.822  recall=0.779  prec=0.871  AUC=0.909
+    QEWO (7 epochs)  F1=0.912  recall=0.874  prec=0.954  AUC=0.953
+          evals/epoch=221184  time/epoch=211.4s
+
+  Seed 0
+    ADAM (11 epochs)  F1=0.837  recall=0.758  prec=0.935  AUC=0.953
+    QEWO (6 epochs)  F1=0.872  recall=0.821  prec=0.929  AUC=0.944
+          evals/epoch=221184  time/epoch=139.7s
+
+  Seed 1
+    ADAM (11 epochs)  F1=0.835  recall=0.747  prec=0.947  AUC=0.946
+    QEWO (6 epochs)  F1=0.862  recall=0.821  prec=0.907  AUC=0.924
+          evals/epoch=221184  time/epoch=145.2s
+
+  Seed 2
+    ADAM (12 epochs)  F1=0.844  recall=0.768  prec=0.936  AUC=0.941
+    QEWO (6 epochs)  F1=0.859  recall=0.832  prec=0.888  AUC=0.918
+          evals/epoch=221184  time/epoch=145.7s
+
+  Seed 3
+    ADAM (15 epochs)  F1=0.837  recall=0.758  prec=0.935  AUC=0.946
+    QEWO (6 epochs)  F1=0.891  recall=0.863  prec=0.921  AUC=0.947
+          evals/epoch=221184  time/epoch=1026.3s
+
+  === H=256 summary ===
+  ADAM  F1=0.835±0.007  recall=0.762  AUC=0.939
+  QEWO  F1=0.879±0.020  recall=0.842  AUC=0.937
+  QEWO  evals/epoch=221184  time/epoch=333.7s
+
+==============================================================
+SCALABILITY SUMMARY
+   H        N   ADAM F1   QEWO F1   ADAM rec   QEWO rec    evals/ep    s/ep
+--------------------------------------------------------------
+   8      320  0.814±0.034  0.876±0.016  0.701     0.832            960     0.1
+  16      768  0.846±0.033  0.866±0.014  0.768     0.821           2304     0.2
+  32     2048  0.821±0.008  0.855±0.028  0.722     0.798           6144     0.7
+  64     6144  0.828±0.013  0.879±0.009  0.735     0.853          18432     3.1
+ 128    20480  0.810±0.027  0.881±0.017  0.703     0.853          61440    25.0
+ 256    73728  0.835±0.007  0.879±0.020  0.762     0.842         221184   333.7
+==============================================================
+
+Done. Figures saved:
+  scalability_fraud_f1_vs_n.pdf
+  scalability_fraud_recall_vs_n.pdf
+  scalability_fraud_evals_vs_n.pdf
+  scalability_fraud_time_vs_n.pdf
+  logs/scalability_fraud.log

@@ -1,0 +1,7 @@
+qiskit>=2.0.0
+qiskit-aer>=0.17.0
+numpy>=2.0.0
+scikit-learn>=1.0.0
+matplotlib>=3.0.0
+kagglehub>=0.1.0
+pandas>=2.0.0
