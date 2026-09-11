@@ -252,10 +252,3 @@ SCALABILITY SUMMARY
  128    20480  0.810±0.027  0.881±0.017  0.703     0.853          61440    25.0
  256    73728  0.835±0.007  0.879±0.020  0.762     0.842         221184   333.7
 ==============================================================
-
-Done. Figures saved:
-  scalability_fraud_f1_vs_n.pdf
-  scalability_fraud_recall_vs_n.pdf
-  scalability_fraud_evals_vs_n.pdf
-  scalability_fraud_time_vs_n.pdf
-  logs/scalability_fraud.log
